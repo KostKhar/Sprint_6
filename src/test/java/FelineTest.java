@@ -14,29 +14,25 @@ public class FelineTest {
     @Test
     public void checkEatMeat() throws Exception {
         Feline feline = Mockito.spy(Feline.class);
-        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         assertEquals(List.of("Животные", "Птицы", "Рыба"), feline.eatMeat());
     }
 
     @Test
     public void checkGetFamily() {
-        Feline feline = Mockito.spy(Feline.class);
-        Mockito.when(feline.getFamily()).thenReturn("Кошачьи");
-        assertEquals("Кошачьи", feline.getFamily());
+        assertEquals("Кошачьи", new Feline().getFamily());
     }
 
     @Test
     public void checkGetKittens() {
         Feline feline = Mockito.spy(Feline.class);
-        Mockito.when(feline.getKittens()).thenReturn(1);
+        Mockito.when(feline.getKittens(1)).thenReturn(1);
         assertEquals(1, feline.getKittens());
     }
 
     @Test
     public void checkGetKittensCount() {
-        Feline feline = Mockito.mock(Feline.class);
-        Mockito.when(feline.getKittens(1)).thenReturn(1);
-        assertEquals(1, feline.getKittens(1));
+        assertEquals(1, new Feline().getKittens(1));
     }
 
 

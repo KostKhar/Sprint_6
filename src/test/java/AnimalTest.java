@@ -11,17 +11,13 @@ import static org.junit.Assert.assertThrows;
 public class AnimalTest {
     @Test
     public void checkGetFoodException() throws Exception {
-        Animal animal = Mockito.spy(Animal.class);
         assertThrows(Exception.class, () -> {
-            animal.getFood("Всеядное");
+           new Animal().getFood("Всеядное");
         });
     }
-
     @Test
     public void checkGetFamily() {
-        Animal animal = Mockito.spy(Animal.class);
-        Mockito.when(animal.getFamily()).thenReturn("Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи");
-        assertEquals("Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи", animal.getFamily());
+        assertEquals("Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи", new Animal().getFamily());
     }
 
 }

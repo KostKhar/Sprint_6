@@ -12,28 +12,31 @@ import static org.junit.Assert.assertThrows;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
+
     @Test
     public void checkHasManeException() throws Exception {
         assertThrows(Exception.class, () -> {
-            new Lion("Трансгендер");
+            new Lion("Трансгендер", new Feline());
         });
     }
 
     @Test
     public void lionGetKittensTest() throws Exception {
         Feline feline = new Feline();
-        Lion lion = new Lion(feline);
+        Lion lion = new Lion("Самец", feline);
         Lion lionSpy = Mockito.spy(lion);
-        Mockito.when(lionSpy.getKittens()).thenReturn(1);
+        lionSpy.getKittens();
+        Mockito.when(feline.getKittens()).thenReturn(1);
         assertEquals(1, lionSpy.getKittens());
     }
 
     @Test
     public void checkGetFood() throws Exception {
         Feline feline = new Feline();
-        Lion lion = new Lion(feline);
+        Lion lion = new Lion("Самка", feline);
         Lion lionSpy = Mockito.spy(lion);
-        Mockito.when(lionSpy.getFood()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        lionSpy.getFood();
+        Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         assertEquals(List.of("Животные", "Птицы", "Рыба"), lionSpy.getFood());
     }
 

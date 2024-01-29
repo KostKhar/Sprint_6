@@ -11,30 +11,23 @@ public class LionAlexTest {
 
     @Test
     public void checkAlexTest() throws Exception {
-        LionAlex lionAlex = new LionAlex();
-        LionAlex lionSpy = Mockito.spy(lionAlex);
-        assertTrue(lionSpy.doesHaveMane());
+        assertTrue(new LionAlex().doesHaveMane());
     }
 
     @Test
-    public void checkGetKittens() {
-        LionAlex lionAlex = Mockito.spy(LionAlex.class);
-        Mockito.when(lionAlex.getKittens()).thenReturn(0);
+    public void checkGetKittens() throws Exception {
+        LionAlex lionAlex = new LionAlex();
         assertEquals(0, lionAlex.getKittens());
     }
 
     @Test
-    public void checkGetFriens() {
-        LionAlex lionAlex = Mockito.spy(LionAlex.class);
-        Mockito.when(lionAlex.getFriends()).thenReturn(List.of("зебра Марти", "бегемотиха Глория", "жирафа Мелман"));
-        assertEquals(List.of("зебра Марти", "бегемотиха Глория", "жирафа Мелман"), lionAlex.getFriends());
+    public void checkGetFriends() throws Exception {
+        assertEquals(List.of("зебра Марти", "бегемотиха Глория", "жирафа Мелман"),new LionAlex().getFriends());
     }
 
     @Test
-    public void checkPlaceOfLiving() {
-        LionAlex lionAlex = Mockito.spy(LionAlex.class);
-        Mockito.when(lionAlex.getPlaceOfLiving()).thenReturn("Нью-Йоркский зоопарк");
-        assertEquals("Нью-Йоркский зоопарк", lionAlex.getPlaceOfLiving());
+    public void checkPlaceOfLiving() throws Exception {
+        assertEquals("Нью-Йоркский зоопарк", new LionAlex().getPlaceOfLiving());
     }
 
 }

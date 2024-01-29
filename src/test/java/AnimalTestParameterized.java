@@ -22,7 +22,7 @@ public class AnimalTestParameterized {
         this.hisFood = hisFood;
     }
 
-    @Parameterized.Parameters // добавили аннотацию
+    @Parameterized.Parameters
     public static Object[][] getAnimalKind() {
         return new Object[][]{
                 {"Травоядное", List.of("Трава", "Различные растения"), true},

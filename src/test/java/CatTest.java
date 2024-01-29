@@ -14,18 +14,16 @@ import static org.junit.Assert.assertEquals;
 public class CatTest {
     @Mock
     Feline feline;
-
     @Test
     public void checkGetSound() {
-        Cat cat = Mockito.spy(new Cat(feline));
-        Mockito.when(cat.getSound()).thenReturn("Mяу");
-        assertEquals("Mяу", cat.getSound());
+        assertEquals("Мяу", new Cat(feline).getSound());
     }
 
     @Test
     public void checkGetFood() throws Exception {
         Cat cat = Mockito.spy(new Cat(feline));
-        Mockito.when(cat.getFood()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        cat.getFood();
+        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         assertEquals(List.of("Животные", "Птицы", "Рыба"), cat.getFood());
     }
 

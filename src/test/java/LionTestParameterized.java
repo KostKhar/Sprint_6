@@ -1,3 +1,4 @@
+import com.example.Feline;
 import com.example.Lion;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,10 +12,11 @@ public class LionTestParameterized {
 
     private final boolean hasMane;
 
+    private Feline feline;
+
     public LionTestParameterized(String sex, boolean hasMane) {
         this.sex = sex;
         this.hasMane = hasMane;
-
     }
 
     @Parameterized.Parameters
@@ -27,7 +29,7 @@ public class LionTestParameterized {
 
     @Test
     public void checkHasMane() throws Exception {
-        Lion lion = new Lion(sex);
+        Lion lion = new Lion(sex, feline);
         assertEquals(hasMane, lion.doesHaveMane());
     }
 
