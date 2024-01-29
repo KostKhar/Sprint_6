@@ -14,6 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class CatTest {
     @Mock
     Feline feline;
+
     @Test
     public void checkGetSound() {
         assertEquals("Мяу", new Cat(feline).getSound());

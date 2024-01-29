@@ -1,6 +1,5 @@
 import com.example.LionAlex;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class LionAlexTest {
 
     @Test
     public void checkGetFriends() throws Exception {
-        assertEquals(List.of("зебра Марти", "бегемотиха Глория", "жирафа Мелман"),new LionAlex().getFriends());
+        assertEquals(List.of("зебра Марти", "бегемотиха Глория", "жирафа Мелман"), new LionAlex().getFriends());
     }
 
     @Test
